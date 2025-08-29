@@ -6,7 +6,7 @@ services:
     volumes:
       - './app:/app'
     ports:
-      - '8000:80'
+      - '8000:8000'
       - '5173:5173'
     depends_on:
       - cadastro_usuarios_db

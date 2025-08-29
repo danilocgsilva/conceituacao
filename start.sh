@@ -1,3 +1,3 @@
 #!/bin/bash
 
-docker compose up -d --build
+docker exec -it cadastro_usuarios composer --working-dir /app dev
