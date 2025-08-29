@@ -7,6 +7,9 @@ services:
       - './app:/app'
     ports:
       - '8000:80'
+    depends_on:
+      - cadastro_usuarios_db
+    working_dir: "/app"
   cadastro_usuarios_db:
     image: 'mysql:latest'
     container_name: cadastro_usuarios_db
