@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\ViewModel;
+namespace App\Contracts;
 
 interface ViewModelInterface
 {

@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace App\ViewModel;
 
+use App\Contracts\ViewModelInterface;
+
 class Template implements ViewModelInterface
 {
     public const TITLE = "Índice";

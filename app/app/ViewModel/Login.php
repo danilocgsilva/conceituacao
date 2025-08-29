@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace App\ViewModel;
 
+use App\Contracts\ViewModelInterface;
+
 class Login implements ViewModelInterface
 {
     public const TITLE = "Login";
