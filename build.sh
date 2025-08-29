@@ -1,7 +1,11 @@
 #!/bin/bash
 
+docker exec -it cadastro_usuarios_db mysql -uroot -pstrongpassword -e "CREATE DATABASE IF NOT EXISTS cadastro_usuarios;"
 docker compose up -d --build
 docker exec -it cadastro_usuarios composer install --working-dir=/app/
 docker exec -it cadastro_usuarios npm install --prefix /app/
+docker exec -it cadastro_usuarios cp /app/.env.example /app/.env
+docker exec -it cadastro_usuarios /app/artisan key:generate
+docker exec -it cadastro_usuarios /app/artisan migrate
 
 

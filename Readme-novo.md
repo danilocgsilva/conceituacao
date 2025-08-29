@@ -11,4 +11,8 @@ chmod +x ./start.sh
 ./start.sh
 ```
 
-Acesse a aplicação no endereço: http://localhost:8000
+Acesse a aplicação no endereço: http://localhost:8000.
+
+## clean.sh
+
+Limpa os arquivos criados pela compilação da aplicão, removendo `vendor`, `node_modules`, `package-lock.json` e `composer.lock`.
