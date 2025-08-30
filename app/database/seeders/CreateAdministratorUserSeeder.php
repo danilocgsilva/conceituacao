@@ -1,10 +1,11 @@
 <?php
+declare(strict_types=1);
 
 namespace Database\Seeders;
 
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use App\Contracts\UserRepositoryInterface;
+use Illuminate\Support\Facades\Hash;
 
 class CreateAdministratorUserSeeder extends Seeder
 {
@@ -17,7 +18,7 @@ class CreateAdministratorUserSeeder extends Seeder
         $userRepository->create([
             'name' => 'Administrator',
             'email' => 'admin@admin.com',
-            'password' => bcrypt('strongpassword')
+            'password' => Hash::make('strongpassword')
         ]);
     }
 }

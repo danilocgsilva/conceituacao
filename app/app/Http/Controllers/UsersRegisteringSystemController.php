@@ -1,30 +1,34 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\ViewModel;
 
 class UsersRegisteringSystemController extends Controller
 {
     public function index()
     {
-        return view('user-registering-system.index', [
-            'viewData' => new ViewModel\Index()
-        ]);
+        return viewWithViewModel(
+            'user-registering-system.index', 
+            ViewModel\Index::class
+        );
     }
 
     public function login()
     {
-        return view('user-registering-system.login', [
-            'viewData' => new ViewModel\Login()
-        ]);
+        return viewWithViewModel(
+            'user-registering-system.login', 
+            ViewModel\Login::class
+        );
     }
 
     public function template()
     {
-        return view('template', [
-            'viewData' => new ViewModel\Template()
-        ]);
+        return viewWithViewModel(
+            'template', 
+            ViewModel\Template::class
+        );
     }
 }
