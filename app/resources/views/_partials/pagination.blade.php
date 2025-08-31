@@ -6,16 +6,7 @@
         @endif
 
         @for ($i = 1; $i <= $viewData->getPaginationData()->getTotalPages(); $i++)
-            @if ($i === $viewData->getPaginationData()->getCurrentPage())
-                @php
-                    $classes = "py-2 px-4 border border-gray-300 bg-blue-500 text-white hover:bg-blue-600 border-l-0";
-                @endphp
-            @else
-                @php
-                    $classes = "py-2 px-4 border border-gray-300 bg-white text-blue-500 hover:bg-gray-50 border-l-0";
-                @endphp
-            @endif
-            <a href="{{ url()->current() . '?page=' . $i }}" class="{{ $classes }}">{{ $i }}</a>
+            <a href="{{ url()->current() . '?page=' . $i }}" class="@if ($i === $viewData->getPaginationData()->getCurrentPage()) @currentPageClasses @else @notCurrentPageClasses @endif">{{ $i }}</a>
         @endfor
 
         @if (!$viewData->getPaginationData()->isLastPage())
