@@ -1,7 +1,7 @@
 <div class="flex justify-center mt-6">
     <nav class="inline-flex rounded-md shadow">
 
-        @if ()
+        @if (!$viewData->getPaginationData()->isFirstPage())
             <a href="{{ url()->current() . '?page=' . ($viewData->getPaginationData()->getCurrentPage() - 1) }}" class="py-2 px-4 border border-gray-300 bg-white text-blue-500 hover:bg-gray-50 rounded-l-md">Previous</a>
         @endif
 
@@ -18,6 +18,8 @@
             <a href="{{ url()->current() . '?page=' . $i }}" class="{{ $classes }}">{{ $i }}</a>
         @endfor
 
-        <a href="{{ url()->current() . '?page=' . ($viewData->getPaginationData()->getCurrentPage() + 1) }}" class="py-2 px-4 border border-gray-300 bg-white text-blue-500 hover:bg-gray-50 rounded-r-md border-l-0">Next</a>
+        @if (!$viewData->getPaginationData()->isLastPage())
+            <a href="{{ url()->current() . '?page=' . ($viewData->getPaginationData()->getCurrentPage() + 1) }}" class="py-2 px-4 border border-gray-300 bg-white text-blue-500 hover:bg-gray-50 rounded-r-md border-l-0">Next</a>
+        @endif
     </nav>
 </div>

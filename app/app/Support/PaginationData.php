@@ -46,4 +46,14 @@ class PaginationData
         $this->totalItems = $totalItems;
         return $this;
     }
+
+    public function isFirstPage(): bool
+    {
+        return $this->currentPage === 1;
+    }
+
+    public function isLastPage(): bool
+    {
+        return $this->currentPage === $this->getTotalPages();
+    }
 }
