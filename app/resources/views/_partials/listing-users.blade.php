@@ -9,25 +9,18 @@
             </tr>
         </thead>
         <tbody class="bg-white divide-y divide-gray-200">
-            <!-- Sample Data Rows -->
-            <tr>
-                <td class="px-6 py-4 whitespace-nowrap">John Doe</td>
-                <td class="px-6 py-4 whitespace-nowrap">john@example.com</td>
-                <td class="px-6 py-4 whitespace-nowrap">Admin</td>
-                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
-                    <button class="text-indigo-600 hover:text-indigo-900 mr-3">Edit</button>
-                    <button class="text-red-600 hover:text-red-900">Delete</button>
-                </td>
-            </tr>
-            <tr>
-                <td class="px-6 py-4 whitespace-nowrap">Jane Smith</td>
-                <td class="px-6 py-4 whitespace-nowrap">jane@example.com</td>
-                <td class="px-6 py-4 whitespace-nowrap">User</td>
-                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
-                    <button class="text-indigo-600 hover:text-indigo-900 mr-3">Edit</button>
-                    <button class="text-red-600 hover:text-red-900">Delete</button>
-                </td>
-            </tr>
+            @foreach ($viewData->getList() as $user)
+                <tr>
+                    <td class="px-6 py-4 whitespace-nowrap">{{ $user->name }}</td>
+                    <td class="px-6 py-4 whitespace-nowrap">{{ $user->email }}</td>
+                    <td class="px-6 py-4 whitespace-nowrap">Admin</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
+                        <button class="text-indigo-600 hover:text-indigo-900 mr-3">Edit</button>
+                        <button class="text-red-600 hover:text-red-900">Delete</button>
+                    </td>
+                </tr>
+            @endforeach
+
         </tbody>
     </table>
 </div>

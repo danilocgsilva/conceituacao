@@ -7,10 +7,13 @@ namespace App\Repositories;
 use App\Models\User;
 use Illuminate\Support\Collection;
 use App\Contracts\UserRepositoryInterface;
+use App\Support\PaginationData;
 
 class UserRepository implements UserRepositoryInterface
 {
-public function all(): Collection
+    private PaginationData $paginationData;
+
+    public function all(): Collection
     {
         return User::all();
     }
@@ -40,5 +43,18 @@ public function all(): Collection
     {
         $user = $this->find($id);
         return $user ? (bool) $user->delete() : false;
+    }
+
+    public function getPaginated(PaginationData $paginationData): Collection
+    {
+        $this->paginationData = $paginationData;
+        $this->paginationData->setTotalItems(User::count());
+        
+        return User::paginate(
+            $paginationData->perPage,
+            ['*'],
+            'page',
+            $paginationData->currentPage
+        )->getCollection();
     }
 }
