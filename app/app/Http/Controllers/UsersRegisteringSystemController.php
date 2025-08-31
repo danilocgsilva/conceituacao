@@ -37,11 +37,10 @@ class UsersRegisteringSystemController extends Controller
         );
     }
 
-    public function template()
+    public function myself(Request $request)
     {
-        return viewWithViewModel(
-            'template', 
-            ViewModel\Template::class
-        );
+        return view('user-registering-system.myself', [
+            'user' => $request->user(),
+        ]);
     }
 }

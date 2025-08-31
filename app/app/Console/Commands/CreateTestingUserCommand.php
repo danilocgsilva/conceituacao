@@ -16,7 +16,7 @@ class CreateTestingUserCommand extends Command
      *
      * @var string
      */
-    protected $signature = 'app:create-testing-user';
+    protected $signature = 'app:create-testing-user {--count=1 : Number of users to create}';
 
     /**
      * The console command description.
@@ -30,12 +30,18 @@ class CreateTestingUserCommand extends Command
      */
     public function handle()
     {
-        $nakedPassword = $this->generateSimplePassword();
-
-        $user = User::factory()->create([
-            'password' => Hash::make($nakedPassword)
-        ]);
+        $count = $this->option('count');
         
-        $this->info("Testing user created: {$user->email}, password: {$nakedPassword}.");
+        for ($i = 0; $i < $count; $i++) {
+            $nakedPassword = $this->generateSimplePassword();
+            
+            $user = User::factory()->create([
+                'password' => Hash::make($nakedPassword)
+            ]);
+            
+            $this->info("Testing user created: {$user->email}, password: {$nakedPassword}.");
+        }
+        
+        $this->info("Created {$count} testing user(s).");
     }
 }

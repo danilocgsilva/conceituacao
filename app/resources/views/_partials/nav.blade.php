@@ -9,7 +9,7 @@
             @auth
             <div class="hidden md:block">
                 <div class="ml-10 flex items-baseline space-x-4">
-                    <a href="{{ route('profile.edit') }}"
+                    <a href="{{ route('myself.edit') }}"
                         class="text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium transition duration-300">Perfil</a>
                     <form method="POST" action="{{ route('logout') }}" class="text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium transition duration-300">
                         @csrf
@@ -51,7 +51,7 @@
 
         <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
 
-            <a href="#"
+            <a href="{{ route('myself.edit') }}"
                 class="text-gray-600 hover:text-gray-900 block px-3 py-2 rounded-md text-base font-medium">Perfil</a>
             <form method="POST" action="{{ route('logout') }}" class="text-gray-600 hover:text-gray-900 block px-3 py-2 rounded-md text-base font-medium">
                 @csrf
