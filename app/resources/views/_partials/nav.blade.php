@@ -1,13 +1,12 @@
-<!-- Navigation Bar -->
 <nav class="bg-white shadow-lg">
     <div class="max-w-7xl mx-auto px-4">
         <div class="flex justify-between items-center h-16">
-            <!-- Logo/Brand -->
+            
             <div class="flex-shrink-0">
                 <a href="#" class="text-xl font-bold text-gray-800">Cadastro de usuários</a>
             </div>
 
-            <!-- Desktop Menu -->
+            @auth
             <div class="hidden md:block">
                 <div class="ml-10 flex items-baseline space-x-4">
                     <a href="{{ route('profile.edit') }}"
@@ -22,6 +21,7 @@
                     </form>
                 </div>
             </div>
+            @endauth
 
             
             <div class="md:hidden">
@@ -46,8 +46,11 @@
         </div>
     </div>
 
+    @auth
     <div class="md:hidden hidden" id="mobile-menu">
+
         <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+
             <a href="#"
                 class="text-gray-600 hover:text-gray-900 block px-3 py-2 rounded-md text-base font-medium">Perfil</a>
             <form method="POST" action="{{ route('logout') }}" class="text-gray-600 hover:text-gray-900 block px-3 py-2 rounded-md text-base font-medium">
@@ -58,8 +61,10 @@
                     {{ __('Log Out') }}
                 </a>
             </form>
+            
         </div>
     </div>
+    @endauth
 </nav>
 
 <!-- JavaScript for mobile menu toggle -->
