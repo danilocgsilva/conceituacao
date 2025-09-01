@@ -39,8 +39,12 @@ class UsersRegisteringSystemController extends Controller
 
     public function myself(Request $request)
     {
-        return view('user-registering-system.myself', [
-            'user' => $request->user(),
-        ]);
+        return viewWithViewModel(
+            'user-registering-system.myself',
+            ViewModel\Myself::class,
+            [
+                'user' => $request->user()
+            ]
+         );
     }
 }
