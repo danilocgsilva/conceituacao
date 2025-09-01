@@ -5,3 +5,11 @@
 .bg-blue-500 {
     background-color: #3B82F6;
 }
+
+.empty-previous {
+    margin-left: 98px;
+}
+
+.empty-next {
+    margin-right: 68px;
+}
