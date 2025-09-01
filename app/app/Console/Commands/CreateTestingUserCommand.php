@@ -2,7 +2,7 @@
 
 namespace App\Console\Commands;
 
-use App\Models\User;
+use App\Support\Models\User;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Hash;
 use App\Traits\GenerateSimplePasswordTrait;

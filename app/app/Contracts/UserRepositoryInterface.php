@@ -6,7 +6,7 @@ namespace App\Contracts;
 
 use App\Support\PaginationData;
 use Illuminate\Support\Collection;
-use App\Models\User;
+use App\Support\Models\User;
 
 interface UserRepositoryInterface extends RepositoryInterface
 {

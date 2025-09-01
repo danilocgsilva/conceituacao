@@ -1,6 +1,6 @@
 <?php
 
-use App\Models\User;
+use App\Support\Models\User;
 
 test('login screen can be rendered', function () {
     $response = $this->get('/login');
@@ -15,6 +15,7 @@ test('users can authenticate using the login screen', function () {
         'email' => $user->email,
         'password' => 'password',
     ]);
+
 
     $this->assertAuthenticated();
     $response->assertRedirect(route('users-registering.index', absolute: false));

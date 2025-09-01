@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace App\ViewModel;
 
 use App\Contracts\ViewModelInterface;
-use App\Models\User;
+use App\Support\Models\User;
 
 class Myself implements ViewModelInterface
 {

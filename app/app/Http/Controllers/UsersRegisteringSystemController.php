@@ -8,6 +8,9 @@ use App\Contracts\UserRepositoryInterface;
 use App\Support\PaginationData;
 use App\ViewModel;
 use Illuminate\Http\Request;
+use App\Support\Http\Controller;
+use App\Http\Requests\ProfileUpdateRequest;
+use Illuminate\Support\Facades\Redirect;
 
 class UsersRegisteringSystemController extends Controller
 {
@@ -46,5 +49,18 @@ class UsersRegisteringSystemController extends Controller
                 'user' => $request->user()
             ]
          );
+    }
+
+    public function updateMyself(ProfileUpdateRequest $request)
+    {
+        $request->user()->fill($request->validated());
+
+        if ($request->user()->isDirty('email')) {
+            $request->user()->email_verified_at = null;
+        }
+
+        $request->user()->save();
+
+        return Redirect::route('myself.edit')->with('status', 'profile-updated');
     }
 }

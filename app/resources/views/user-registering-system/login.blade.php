@@ -8,8 +8,8 @@
         <div class="max-w-md w-full bg-white rounded-xl shadow-2xl overflow-hidden card-hover">
             <div class="py-6 px-8">
                 <div class="text-center">
-                    <div class="mx-auto w-24 h-24 rounded-full bg-purple-100 flex items-center justify-center mb-4">
-                        <i class="fas fa-user-lock text-purple-600 text-4xl"></i>
+                    <div class="mx-auto w-24 h-24 rounded-full bg-blue-100 flex items-center justify-center mb-4">
+                        <i class="fas fa-user-lock text-blue-600 text-4xl"></i>
                     </div>
                     <h2 class="text-3xl font-bold text-gray-800 mb-2">Bem vindo!</h2>
                     <p class="text-gray-600 mb-8">Se logue para continuar as atividades</p>
@@ -23,7 +23,7 @@
                                 <i class="fas fa-envelope text-gray-400"></i>
                             </div>
                             <input type="email" id="email"
-                                class="w-full pl-10 pr-3 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent"
+                                class="w-full pl-10 pr-3 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent"
                                 placeholder="voce@provedor.com">
                         </div>
                     </div>
@@ -35,7 +35,7 @@
                                 <i class="fas fa-lock text-gray-400"></i>
                             </div>
                             <input type="password" id="password"
-                                class="w-full pl-10 pr-3 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent"
+                                class="w-full pl-10 pr-3 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent"
                                 placeholder="••••••••">
                             <div class="absolute inset-y-0 right-0 pr-3 flex items-center">
                                 <button type="button" id="togglePassword"

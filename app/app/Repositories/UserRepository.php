@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\Repositories;
 
-use App\Models\User;
+use App\Support\Models\User;
 use Illuminate\Support\Collection;
 use App\Contracts\UserRepositoryInterface;
 use App\Support\PaginationData;
