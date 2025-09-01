@@ -2,9 +2,8 @@
     <div class="max-w-7xl mx-auto p-4 sm:p-8 bg-white shadow-md sm:rounded-lg">
         <section class="space-y-6">
             <header>
-                <h2 class="text-lg font-medium text-gray-900">
-                    Delete Account
-                </h2>
+
+                <h2 class="text-xl font-semibold text-gray-900">Delete Account</h2>
 
                 <p class="mt-1 text-sm text-gray-600">
                     Once your account is deleted, all of its resources and data will be permanently deleted. Before

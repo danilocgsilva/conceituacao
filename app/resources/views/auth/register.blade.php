@@ -4,8 +4,8 @@
 
         <!-- Name -->
         <div>
-            <x-input-label for="name" :value="__('Name')" />
-            <x-text-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required autofocus autocomplete="name" />
+            <label for="name" class="block font-medium text-sm text-gray-700">Nome</label>
+            <input id="name" class="block mt-1 w-full border-gray-300 rounded-md shadow-sm focus:border-indigo-500 focus:ring-indigo-500" type="text" name="name" value="{{ old('name') }}" required autofocus autocomplete="name" />
             @error('name')
                 <div class="mt-2 text-sm text-red-600">{{ $message }}</div>
             @enderror
@@ -13,8 +13,8 @@
 
         <!-- Email Address -->
         <div class="mt-4">
-            <x-input-label for="email" :value="__('Email')" />
-            <x-text-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autocomplete="username" />
+            <label for="email" class="block font-medium text-sm text-gray-700">Email</label>
+            <input id="email" class="block mt-1 w-full border-gray-300 rounded-md shadow-sm focus:border-indigo-500 focus:ring-indigo-500" type="email" name="email" value="{{ old('email') }}" required autocomplete="username" />
             @error('email')
                 <div class="mt-2 text-sm text-red-600">{{ $message }}</div>
             @enderror
@@ -22,9 +22,9 @@
 
         <!-- Password -->
         <div class="mt-4">
-            <x-input-label for="password" :value="__('Password')" />
+            <label for="password" class="block font-medium text-sm text-gray-700">Senha</label>
 
-            <x-text-input id="password" class="block mt-1 w-full"
+            <input id="password" class="block mt-1 w-full border-gray-300 rounded-md shadow-sm focus:border-indigo-500 focus:ring-indigo-500"
                             type="password"
                             name="password"
                             required autocomplete="new-password" />
@@ -36,9 +36,9 @@
 
         <!-- Confirm Password -->
         <div class="mt-4">
-            <x-input-label for="password_confirmation" :value="__('Confirm Password')" />
+            <label for="password_confirmation" class="block font-medium text-sm text-gray-700">Confirmar senha</label>
 
-            <x-text-input id="password_confirmation" class="block mt-1 w-full"
+            <input id="password_confirmation" class="block mt-1 w-full border-gray-300 rounded-md shadow-sm focus:border-indigo-500 focus:ring-indigo-500"
                             type="password"
                             name="password_confirmation" required autocomplete="new-password" />
 
@@ -49,11 +49,11 @@
 
         <div class="flex items-center justify-end mt-4">
             <a class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" href="{{ route('login') }}">
-                {{ __('Already registered?') }}
+                Já tem uma conta?
             </a>
 
             <button type="submit" class="ms-4 inline-flex items-center px-4 py-2 bg-gray-800 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-700 focus:bg-gray-700 active:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 transition ease-in-out duration-150">
-                {{ __('Register') }}
+                Registrar
             </button>
         </div>
     </form>
