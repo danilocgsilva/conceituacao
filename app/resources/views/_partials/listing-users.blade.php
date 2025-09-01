@@ -19,7 +19,7 @@
                         <a href="{{ route('user.edit', ['user' => $user->id]) }}" class="text-indigo-600 hover:text-indigo-900 mr-3">Edit</a>
                         <a href="#" 
                             class="text-red-600 hover:text-red-900" 
-                            onclick="confirmUserDeletion({{ $user->id }})">Delete</a>
+                            onclick="event.preventDefault(); confirmUserDeletion({{ $user->id }})">Delete</a>
                         <form id="delete-user-form-{{ $user->id }}" action="{{ route('user.destroy', $user->id) }}" method="POST" class="hidden">
                             @csrf
                             @method('DELETE')

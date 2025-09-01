@@ -22,7 +22,9 @@ class AdminUserController extends Controller
 
     public function destroy(User $user)
     {
+        $userName = $user->name;
         $user->delete();
-        return redirect()->route('users-registering.index');
+        return redirect()->route('users-registering.index')
+            ->with('success', "{$userName} foi excluído com sucesso.");
     }
 }

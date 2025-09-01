@@ -18,7 +18,7 @@ class UsersRegisteringSystemController extends Controller
     {
         $paginationData = new PaginationData(
             (int) $request->query('page', "1"),
-            5
+            10
         );
         $usersCollection = $userRepository->getPaginated($paginationData);
 
