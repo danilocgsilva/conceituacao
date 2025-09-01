@@ -32,14 +32,6 @@ class UsersRegisteringSystemController extends Controller
         );
     }
 
-    public function login()
-    {
-        return viewWithViewModel(
-            'user-registering-system.login', 
-            ViewModel\Login::class
-        );
-    }
-
     public function myself(Request $request)
     {
         return viewWithViewModel(

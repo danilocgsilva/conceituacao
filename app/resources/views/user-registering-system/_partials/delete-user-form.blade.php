@@ -6,9 +6,7 @@
                 <h2 class="text-xl font-semibold text-gray-900">Excluir Conta</h2>
 
                 <p class="mt-1 text-sm text-gray-600">
-                    Uma vez que sua conta for excluída, todos os seus recursos e dados serão permanentemente excluídos. Antes de
-                    excluir
-                    sua conta, por favor baixe quaisquer dados ou informações que deseje manter.
+                    Uma vez que sua conta for excluída, todos os seus recursos e dados serão permanentemente excluídos. Antes de excluir sua conta, por favor baixe quaisquer dados ou informações que deseje manter.
                 </p>
             </header>
 
@@ -32,9 +30,7 @@
                         </h2>
 
                         <p class="mt-1 text-sm text-gray-600">
-                            Uma vez que sua conta for excluída, todos os seus recursos e dados serão permanentemente excluídos.
-                            Por favor
-                            digite sua senha para confirmar que deseja excluir permanentemente sua conta.
+                            Uma vez que sua conta for excluída, todos os seus recursos e dados serão permanentemente excluídos. Por favor digite sua senha para confirmar que deseja excluir permanentemente sua conta.
                         </p>
 
                         <div class="mt-6">
@@ -60,6 +56,7 @@
                         </div>
                     </form>
                 </div>
+
             </div>
         </section>
     </div>

@@ -26,10 +26,8 @@ Route::middleware('auth')->group(function () {
         ->name('users-registering.index');
     Route::get('/user/edit/{user}/', [AdminUserController::class, "edit"])
         ->name('user.edit');
+    Route::delete('/user/{user}/', [AdminUserController::class, "destroy"])
+        ->name('user.destroy');
 });
-
-Route::get('/login-old', [UsersRegisteringSystemController::class, "login"])
-    ->name('login-old');
-Route::get('/template', [UsersRegisteringSystemController::class, "template"]);
 
 require __DIR__.'/auth.php';

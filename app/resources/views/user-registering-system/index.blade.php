@@ -7,6 +7,7 @@
         @include('_partials.search-and-filter')
         @include('_partials.listing-users')
         @include('_partials.pagination')
+        @include('_partials.user-delete-confirmation')
     </div>
 
 @endsection
