@@ -30,7 +30,7 @@
                 </div>
 
                 <div>
-                    <label for="email" class="block font-medium text-sm text-gray-700">{{ __('Email') }}</label>
+                    <label for="email" class="block font-medium text-sm text-gray-700">Email</label>
                     <input id="email" name="email" type="email"
                         class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-indigo-500 focus:ring-indigo-500"
                         value="{{ old('email', $viewData->getUser()->email) }}" required autocomplete="username" />
@@ -45,7 +45,7 @@
 
                     @if (session('status') === 'profile-updated')
                         <p x-data="{ show: true }" x-show="show" x-transition x-init="setTimeout(() => show = false, 2000)"
-                            class="text-sm text-gray-600">{{ __('Saved.') }}</p>
+                            class="text-sm text-gray-600">Saved.</p>
                     @endif
                 </div>
             </form>

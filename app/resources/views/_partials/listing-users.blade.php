@@ -17,8 +17,8 @@
                     <td class="px-6 py-4 whitespace-nowrap">{{ $user->email }}</td>
                     <td class="px-6 py-4 whitespace-nowrap">Admin</td>
                     <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
-                        <button class="text-indigo-600 hover:text-indigo-900 mr-3">Edit</button>
-                        <button class="text-red-600 hover:text-red-900">Delete</button>
+                        <a href="{{ route('user.edit', ['user' => $user->id]) }}" class="text-indigo-600 hover:text-indigo-900 mr-3">Edit</a>
+                        <a href="#" class="text-red-600 hover:text-red-900">Delete</a>
                     </td>
                 </tr>
             @endforeach

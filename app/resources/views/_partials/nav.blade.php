@@ -15,7 +15,7 @@
 
                         <a href="route('logout')" onclick="event.preventDefault();
                             this.closest('form').submit();">
-                            {{ __('Log Out') }}
+                            Log Out
                         </a>
                     </form>
                 </div>
@@ -59,7 +59,7 @@
 
                 <a href="route('logout')" onclick="event.preventDefault();
                                                 this.closest('form').submit();">
-                    {{ __('Log Out') }}
+                    Log Out
                 </a>
             </form>
             

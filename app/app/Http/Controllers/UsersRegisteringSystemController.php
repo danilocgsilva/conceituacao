@@ -6,7 +6,7 @@ namespace App\Http\Controllers;
 
 use App\Contracts\UserRepositoryInterface;
 use App\Support\PaginationData;
-use App\ViewModel;
+use App\Admin\ViewModel;
 use Illuminate\Http\Request;
 use App\Support\Http\Controller;
 use App\Http\Requests\ProfileUpdateRequest;

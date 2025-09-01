@@ -40,7 +40,7 @@
 
                     <div class="mb-6">
                         <label for="password block text-gray-700 text-sm font-medium mb-2">
-                            {{ __('Password') }}
+                            Password
                         </label>
 
                         <input id="password" class="block mt-1 w-full border border-gray-300 rounded-lg px-3 py-3 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent" type="password" name="password" required autocomplete="current-password" />
@@ -56,7 +56,7 @@
                             <input id="remember_me" type="checkbox"
                                 class="rounded border-gray-300 text-indigo-600 shadow-sm focus:ring-indigo-500"
                                 name="remember">
-                            <span class="ms-2 text-sm text-gray-600">{{ __('Remember me') }}</span>
+                            <span class="ms-2 text-sm text-gray-600">Remember me</span>
                         </label>
                     </div>
 
@@ -64,12 +64,12 @@
                         @if (Route::has('password.request'))
                             <a class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
                                 href="{{ route('password.request') }}">
-                                {{ __('Forgot your password?') }}
+                                Forgot your password?
                             </a>
                         @endif
 
                         <button type="submit" class="ms-3 bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600 focus:ring-offset-2 transition duration-200">
-                            {{ __('Log in') }}
+                            Log in
                         </button>
                     </div>
                 </form>
