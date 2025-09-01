@@ -24,8 +24,14 @@ Route::middleware('auth')->group(function () {
         ->name('profile.destroy');
     Route::get('/', [UsersRegisteringSystemController::class, "index"])
         ->name('users-registering.index');
-    Route::get('/user/edit/{user}/', [AdminUserController::class, "edit"])
+    Route::get('/user/create', [AdminUserController::class, "create"])
+        ->name('user.create');
+    Route::post('/user', [AdminUserController::class, "store"])
+        ->name('user.store');
+    Route::get('/user/{user}/edit/', [AdminUserController::class, "edit"])
         ->name('user.edit');
+    Route::patch('/user/{user}/', [AdminUserController::class, "update"])
+        ->name('user.update');
     Route::delete('/user/{user}/', [AdminUserController::class, "destroy"])
         ->name('user.destroy');
 });

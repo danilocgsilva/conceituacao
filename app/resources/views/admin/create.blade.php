@@ -1,0 +1,11 @@
+@extends('base')
+
+@section('content')
+
+    @include('_partials.nav')
+
+    <div class="px-4 py-6">
+        @include('admin._partials.create-form')
+    </div>
+
+@endsection

@@ -8,8 +8,10 @@
             @auth
             <div class="hidden md:block">
                 <div class="ml-10 flex items-baseline space-x-4">
+
+                    <a href="{{ route('user.create') }}">Criar usuário</a>
                     <a href="{{ route('users-registering.index') }}">Usuários</a>
-                    <a href="{{ route('myself.edit') }}">Perfil</a>
+                    <a href="{{ route('myself.edit') }}">Minhas informações</a>
                     <form method="POST" action="{{ route('logout') }}" class="">
                         @csrf
 
@@ -26,7 +28,7 @@
                 <button type="button"
                     class="bg-gray-100 inline-flex items-center justify-center p-2 rounded-md text-gray-600 hover:text-gray-900 hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-gray-400"
                     aria-controls="mobile-menu" aria-expanded="false">
-                    <span class="sr-only">Open main menu</span>
+                    <span class="sr-only">Abrir menu principal</span>
                     
                     <svg class="block h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                         stroke="currentColor" aria-hidden="true">
@@ -49,16 +51,19 @@
 
         <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
 
+            <a href="{{ route('user.create') }}"
+                class="text-gray-600 hover:text-gray-900 block px-3 py-2 rounded-md text-base font-medium">Criar usuário</a>
+
             <a href="{{ route('users-registering.index') }}"
                 class="text-gray-600 hover:text-gray-900 block px-3 py-2 rounded-md text-base font-medium">Usuários</a>
 
             <a href="{{ route('myself.edit') }}"
-                class="text-gray-600 hover:text-gray-900 block px-3 py-2 rounded-md text-base font-medium">Perfil</a>
+                class="text-gray-600 hover:text-gray-900 block px-3 py-2 rounded-md text-base font-medium">Minhas informações</a>
             <form method="POST" action="{{ route('logout') }}" class="text-gray-600 hover:text-gray-900 block px-3 py-2 rounded-md text-base font-medium">
                 @csrf
 
                 <a href="route('logout')" onclick="event.preventDefault();
-                                                this.closest('form').submit();">
+                    this.closest('form').submit();">
                     Log Out
                 </a>
             </form>

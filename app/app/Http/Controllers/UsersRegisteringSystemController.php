@@ -53,6 +53,7 @@ class UsersRegisteringSystemController extends Controller
 
         $request->user()->save();
 
-        return Redirect::route('myself.edit')->with('status', 'profile-updated');
+        return Redirect::route('myself.edit')
+            ->with('status', 'profile-updated');
     }
 }
