@@ -7,7 +7,7 @@ use App\Support\Models\User;
 
 class Profile extends Model
 {
-    protected $fillable = ['name', 'user_id'];
+    protected $fillable = ['name', 'user_id', 'description'];
 
     public function user()
     {

@@ -2,7 +2,7 @@
     <table class="min-w-full divide-y divide-gray-200">
         <thead class="bg-gray-50">
             <tr>
-                <th class="px-6 py-3 text-left text-gray-500">Name</th>
+                <th class="px-6 py-3 text-left text-gray-500">Nome</th>
                 <th class="px-6 py-3 text-left text-gray-500">Email</th>
                 <th class="px-6 py-3 text-left text-gray-500">Perfil</th>
                 <th class="px-6 py-3 text-left text-gray-500">Ações

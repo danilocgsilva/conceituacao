@@ -2,19 +2,20 @@
 
 namespace App\Http\Controllers;
 
+use App\Contracts\ProfileRepositoryInterface;
 use App\Profile;
 use Illuminate\Http\Request;
 use App\ViewModel;
 
 class ProfileController
 {
-    public function index()
+    public function index(ProfileRepositoryInterface $profileRepository)
     {
         return viewWithViewModel(
             'profile.index',
             ViewModel\Profiles\Index::class,
             [
-                'profiles' => Profile::all()
+                'profiles' => $profileRepository->all()
             ]
         );
     }

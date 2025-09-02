@@ -3,5 +3,5 @@
 @section('content')
     @include('_partials.nav')
     @include('_partials.messages')
-    index
+    @include('profile._partials.index_data')
 @endsection
