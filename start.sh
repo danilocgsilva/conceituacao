@@ -1,3 +1,3 @@
 #!/bin/bash
 
-docker exec -it cadastro_usuarios composer --working-dir /app dev
+docker exec -it cadastro_usuarios /start.sh

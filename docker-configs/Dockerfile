@@ -10,6 +10,7 @@ RUN docker-php-ext-configure pcntl --enable-pcntl \
     && docker-php-ext-install \
     pcntl
 RUN docker-php-ext-install pdo_mysql
-COPY ./build.sh /
+COPY ./start.sh /
+RUN chmod +x /start.sh
 
 CMD while : ; do sleep 1000; done

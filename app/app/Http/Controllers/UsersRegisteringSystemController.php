@@ -65,7 +65,7 @@ class UsersRegisteringSystemController extends Controller
 
     public function register(): View
     {
-        return viewWithViewModel('user-registering-system.register', Users\Register::class);
+        return viewWithViewModel('user-registering-system.register', ViewModel\Users\Register::class);
     }
 
     public function removeMyself(RemoveMyselfRequest $request): RedirectResponse

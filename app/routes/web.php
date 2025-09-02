@@ -1,10 +1,10 @@
 <?php
 
-use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\{
     UsersRegisteringSystemController,
-    AdminUserController
+    AdminUserController,
+    ProfileController
 };
 
 Route::get('/', function () {
@@ -16,8 +16,8 @@ Route::middleware('auth')->group(function () {
         ->name('myself.edit');
     Route::patch('/myself', [UsersRegisteringSystemController::class, 'updateMyself'])
         ->name('myself.update');
-    Route::delete('/profile', [UsersRegisteringSystemController::class, 'removeMyself'])
-        ->name('profile.destroy');
+    Route::delete('/mysqlf', [UsersRegisteringSystemController::class, 'removeMyself'])
+        ->name('mysqld.destroy');
 
     Route::get('/', [UsersRegisteringSystemController::class, "index"])
         ->name('users-registering.index');
@@ -32,7 +32,8 @@ Route::middleware('auth')->group(function () {
     Route::delete('/user/{user}/', [AdminUserController::class, "destroy"])
         ->name('user.destroy');
 
-    
+    Route::get('/profile', [ProfileController::class, "index"])
+        ->name('profile.index');
 });
 
 require __DIR__.'/auth.php';
