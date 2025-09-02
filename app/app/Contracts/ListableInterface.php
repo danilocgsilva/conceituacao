@@ -10,6 +10,4 @@ use Illuminate\Database\Eloquent\Collection;
 interface ListableInterface
 {
     public function getList(): Collection;
-
-    public function getPaginationData(): PaginationData;
 }

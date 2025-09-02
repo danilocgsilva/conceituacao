@@ -15,6 +15,8 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\View\View;
 use App\Http\Requests\RegisterRequest;
+use Illuminate\Support\Facades\Auth;
+use App\Http\Requests\RemoveMyselfRequest;
 
 class UsersRegisteringSystemController extends Controller
 {
@@ -28,7 +30,7 @@ class UsersRegisteringSystemController extends Controller
 
         return viewWithViewModel(
             'user-registering-system.index',
-            ViewModel\Index::class,
+            ViewModel\Users\Index::class,
             [
                 'users' => $usersCollection,
                 'pagination' => $paginationData
@@ -40,7 +42,7 @@ class UsersRegisteringSystemController extends Controller
     {
         return viewWithViewModel(
             'user-registering-system.myself',
-            ViewModel\Myself::class,
+            ViewModel\Users\Myself::class,
             [
                 'user' => $request->user()
             ]
@@ -63,9 +65,22 @@ class UsersRegisteringSystemController extends Controller
 
     public function register(): View
     {
-        return viewWithViewModel('user-registering-system.register', ViewModel\Register::class);
+        return viewWithViewModel('user-registering-system.register', Users\Register::class);
     }
 
+    public function removeMyself(RemoveMyselfRequest $request): RedirectResponse
+    {
+        $user = $request->user();
+
+        Auth::logout();
+
+        $user->delete();
+
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
+
+        return Redirect::to('/');
+    }
 
     public function store(RegisterRequest $request, UserRepositoryInterface $userRepository): RedirectResponse
     {

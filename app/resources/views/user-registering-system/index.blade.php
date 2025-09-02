@@ -3,9 +3,7 @@
 @section('content')
     @include('_partials.nav')
     
-    @if(session()->has('success') || session()->has('error') || $errors->any())
-        @include('_partials.messages')
-    @endif
+    @include('_partials.messages')
     
     <div class="px-4 py-6">
         @include('_partials.search-and-filter')

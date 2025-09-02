@@ -18,7 +18,7 @@ class AuthenticatedSessionController extends Controller
     public function create(): View
     {
         return view('user-registering-system.login', [
-            'viewData' => new ViewModel\Login()
+            'viewData' => new ViewModel\Users\Login()
         ]);
     }
 

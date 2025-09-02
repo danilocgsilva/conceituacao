@@ -2,13 +2,13 @@
 
 declare(strict_types=1);
 
-namespace App\ViewModel;
+namespace App\ViewModel\Users;
 
 use App\Contracts\ViewModelInterface;
 
-class Login implements ViewModelInterface
+class Register implements ViewModelInterface
 {
-    public const TITLE = "Login";
+    public const TITLE = "Se cadastre";
 
     public const BODY_CLASSES = "gradient-bg min-h-screen";
 

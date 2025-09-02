@@ -4,14 +4,7 @@
 
     @include('_partials.nav')
 
-    @if(
-        session()->has('success') 
-        || session()->has('status') 
-        || session()->has('error') 
-        || $errors->any()
-        )
-        @include('_partials.messages')
-    @endif
+    @include('_partials.messages')
 
     @include('user-registering-system._partials.update-profile-information-form')
 

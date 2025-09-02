@@ -10,6 +10,7 @@
                     @auth
 
                     <a href="{{ route('user.create') }}">Criar usuário</a>
+                    <a href="{{ route('profile.index') }}">Perfis</a>
                     <a href="{{ route('users-registering.index') }}">Usuários</a>
                     <a href="{{ route('myself.edit') }}">Minhas informações</a>
                     <form method="POST" action="{{ route('logout') }}" class="">
@@ -58,6 +59,9 @@
             @auth
             <a href="{{ route('user.create') }}"
                 class="text-gray-600 hover:text-gray-900 block px-3 py-2 rounded-md text-base font-medium">Criar usuário</a>
+
+            <a href="{{ route('profile.index') }}"
+                class="text-gray-600 hover:text-gray-900 block px-3 py-2 rounded-md text-base font-medium">Perfis</a>
 
             <a href="{{ route('users-registering.index') }}"
                 class="text-gray-600 hover:text-gray-900 block px-3 py-2 rounded-md text-base font-medium">Usuários</a>

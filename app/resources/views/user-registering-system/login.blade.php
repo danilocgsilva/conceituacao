@@ -4,6 +4,8 @@
 
     @include('_partials.nav')
 
+    @include('_partials.messages')
+
     <div class="container mx-auto px-4 py-6 flex items-center justify-center p-4">
 
         <div class="max-w-md w-full bg-white rounded-xl shadow-2xl overflow-hidden card-hover">

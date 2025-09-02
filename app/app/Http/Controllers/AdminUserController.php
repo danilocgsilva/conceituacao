@@ -18,7 +18,7 @@ class AdminUserController extends Controller
     {
         return viewWithViewModel(
             'admin.edit',
-            ViewModel\EditUser::class,
+            ViewModel\Users\EditUser::class,
             [
                 'user' => $user
             ]
@@ -29,7 +29,7 @@ class AdminUserController extends Controller
     {
         return viewWithViewModel(
             'admin.create',
-            ViewModel\CreateUser::class
+            ViewModel\Users\CreateUser::class
         );
     }
 

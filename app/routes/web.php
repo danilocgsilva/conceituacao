@@ -16,7 +16,7 @@ Route::middleware('auth')->group(function () {
         ->name('myself.edit');
     Route::patch('/myself', [UsersRegisteringSystemController::class, 'updateMyself'])
         ->name('myself.update');
-    Route::delete('/profile', [ProfileController::class, 'destroy'])
+    Route::delete('/profile', [UsersRegisteringSystemController::class, 'removeMyself'])
         ->name('profile.destroy');
 
     Route::get('/', [UsersRegisteringSystemController::class, "index"])
@@ -31,6 +31,8 @@ Route::middleware('auth')->group(function () {
         ->name('user.update');
     Route::delete('/user/{user}/', [AdminUserController::class, "destroy"])
         ->name('user.destroy');
+
+    
 });
 
 require __DIR__.'/auth.php';

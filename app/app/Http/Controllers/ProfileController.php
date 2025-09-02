@@ -1,33 +1,38 @@
 <?php
 
-declare(strict_types=1);
-
 namespace App\Http\Controllers;
 
-use Illuminate\Http\RedirectResponse;
+use App\Profile;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Redirect;
-use App\Support\Http\Controller;
+use App\ViewModel;
 
-class ProfileController extends Controller
+class ProfileController
 {
-
-    public function destroy(Request $request): RedirectResponse
+    public function index()
     {
-        $request->validateWithBag('userDeletion', [
-            'password' => ['required', 'current_password'],
-        ]);
+        return viewWithViewModel(
+            'profile.index',
+            ViewModel\Profiles\Index::class,
+            [
+                'profiles' => Profile::all()
+            ]
+        );
+    }
 
-        $user = $request->user();
+    public function store(Request $request)
+    {
+        return Profile::create($request->all());
+    }
 
-        Auth::logout();
+    public function update(Request $request, Profile $profile)
+    {
+        $profile->update($request->all());
+        return $profile;
+    }
 
-        $user->delete();
-
-        $request->session()->invalidate();
-        $request->session()->regenerateToken();
-
-        return Redirect::to('/');
+    public function destroy(Profile $profile)
+    {
+        $profile->delete();
+        return response()->noContent();
     }
 }
