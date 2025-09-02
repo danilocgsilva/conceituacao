@@ -17,19 +17,24 @@ Acesse a aplicação no endereço: http://localhost:8000, ou http://0.0.0.0:8000
 
 ## Adicionando primeiros usuários
 
-Depois que a aplicação é iniciada com `./start.sh`, já é possível acessar a aplicação, mas ainda não é possível se logar, por não existir nenhum usuário.
+Depois que a aplicação é iniciada com `./start.sh`, já é possível acessar a aplicação e já possui usuário para se logar. O script de `./build` já cria o primeiro usuário para se logar:
 
-O usuário primeiro, administrador, pode ser adicionado com o `seed` do banco de dados. Pode executar o seed do banco de dados:
+e-mail: `admin@admin.com`
+senha `strongpassword`
+
+## Usuários adicionais de teste
+
+Caso queria criar outros usuários para teste, esta aplicação possui o seguinte comando (executado dentro do container):
 
 ```
-docker exec -it cadastro_usuarios php artisan db:seed
-```
-ou pode entrar no container e executar:
-```
-php artisan db:seed
+php artisan app:create-testing-user --count=5
 ```
 
+ou para executar o comando fora do container:
 
+```
+docker exec -it cadastro_usuarios php artisan app:create-testing-user --count=5
+```
 
 ## clean.sh
 

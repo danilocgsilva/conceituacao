@@ -11,6 +11,12 @@ use Illuminate\Http\Request;
 use App\Support\Http\Controller;
 use App\Http\Requests\ProfileUpdateRequest;
 use Illuminate\Support\Facades\Redirect;
+use Illuminate\Http\RedirectResponse;
+use Illuminate\Validation\Rules;
+use Illuminate\Auth\Events\Registered;
+use App\Support\Models\User;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\View\View;
 
 class UsersRegisteringSystemController extends Controller
 {
@@ -23,7 +29,7 @@ class UsersRegisteringSystemController extends Controller
         $usersCollection = $userRepository->getPaginated($paginationData);
 
         return viewWithViewModel(
-            'user-registering-system.index', 
+            'user-registering-system.index',
             ViewModel\Index::class,
             [
                 'users' => $usersCollection,
@@ -40,7 +46,7 @@ class UsersRegisteringSystemController extends Controller
             [
                 'user' => $request->user()
             ]
-         );
+        );
     }
 
     public function updateMyself(ProfileUpdateRequest $request)
@@ -55,5 +61,32 @@ class UsersRegisteringSystemController extends Controller
 
         return Redirect::route('myself.edit')
             ->with('status', 'profile-updated');
+    }
+
+    public function register(): View
+    {
+        return viewWithViewModel('user-registering-system.register', ViewModel\Register::class);
+    }
+
+
+    public function store(Request $request): RedirectResponse
+    {
+        $request->validate([
+            'name' => ['required', 'string', 'max:255'],
+            'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:' . User::class],
+            'password' => ['required', 'confirmed', Rules\Password::defaults()],
+        ]);
+
+        $user = User::create([
+            'name' => $request->name,
+            'email' => $request->email,
+            'password' => Hash::make($request->password),
+        ]);
+
+        event(new Registered($user));
+
+        // Auth::login($user);
+
+        return redirect(route('users-registering.index', absolute: false));
     }
 }

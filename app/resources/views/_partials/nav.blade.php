@@ -5,9 +5,9 @@
                 <a href="#" class="text-xl font-bold text-gray-800">Cadastro de usuários</a>
             </div>
 
-            @auth
             <div class="hidden md:block">
                 <div class="ml-10 flex items-baseline space-x-4">
+                    @auth
 
                     <a href="{{ route('user.create') }}">Criar usuário</a>
                     <a href="{{ route('users-registering.index') }}">Usuários</a>
@@ -20,9 +20,14 @@
                             Log Out
                         </a>
                     </form>
+                    @endauth
+
+                    @guest
+                    <a href="{{ route('login') }}">Login</a>
+                    <a href="{{ route('register') }}">Se cadastre</a>
+                    @endguest
                 </div>
             </div>
-            @endauth
             
             <div class="md:hidden">
                 <button type="button"
@@ -46,11 +51,11 @@
         </div>
     </div>
 
-    @auth
     <div class="md:hidden hidden" id="mobile-menu">
-
+        
         <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-
+            
+            @auth
             <a href="{{ route('user.create') }}"
                 class="text-gray-600 hover:text-gray-900 block px-3 py-2 rounded-md text-base font-medium">Criar usuário</a>
 
@@ -67,10 +72,15 @@
                     Log Out
                 </a>
             </form>
+            @endauth
+
+            @guest
+                <a href="{{ route('login') }}" class="text-gray-600 hover:text-gray-900 block px-3 py-2 rounded-md text-base font-medium">Login</a>
+                <a href="{{ route('register') }}" class="text-gray-600 hover:text-gray-900 block px-3 py-2 rounded-md text-base font-medium">Se cadastre</a>
+            @endguest
             
         </div>
     </div>
-    @endauth
 </nav>
 
 <!-- JavaScript for mobile menu toggle -->

@@ -18,6 +18,7 @@ Route::middleware('auth')->group(function () {
         ->name('myself.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])
         ->name('profile.destroy');
+
     Route::get('/', [UsersRegisteringSystemController::class, "index"])
         ->name('users-registering.index');
     Route::get('/user/create', [AdminUserController::class, "create"])

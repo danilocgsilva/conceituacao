@@ -9,7 +9,7 @@ use App\Support\Models\User;
 
 class Myself implements ViewModelInterface
 {
-    public const TITLE = "My Information";
+    public const TITLE = "Minhas informações";
 
     public const BODY_CLASSES = "bg-gray-100 min-h-screen";
 
