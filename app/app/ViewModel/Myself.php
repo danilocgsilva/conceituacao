@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\Admin\ViewModel;
+namespace App\ViewModel;
 
 use App\Contracts\ViewModelInterface;
 use App\Support\Models\User;

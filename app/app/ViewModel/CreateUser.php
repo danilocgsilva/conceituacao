@@ -2,15 +2,15 @@
 
 declare(strict_types=1);
 
-namespace App\Admin\ViewModel;
+namespace App\ViewModel;
 
 use App\Contracts\ViewModelInterface;
 
-class Login implements ViewModelInterface
+class CreateUser implements ViewModelInterface
 {
-    public const TITLE = "Login";
+    public const TITLE = "Editar usuário";
 
-    public const BODY_CLASSES = "gradient-bg min-h-screen";
+    public const BODY_CLASSES = "bg-gray-100 min-h-screen";
 
     public function getTitle(): string
     {

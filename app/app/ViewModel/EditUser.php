@@ -2,15 +2,23 @@
 
 declare(strict_types=1);
 
-namespace App\Admin\ViewModel;
+namespace App\ViewModel;
 
 use App\Contracts\ViewModelInterface;
+use App\Support\Models\User;
 
-class CreateUser implements ViewModelInterface
+class EditUser implements ViewModelInterface
 {
     public const TITLE = "Editar usuário";
 
     public const BODY_CLASSES = "bg-gray-100 min-h-screen";
+
+    private User $user;
+
+    public function __construct(array $data)
+    {
+        $this->user = $data['user'];
+    }
 
     public function getTitle(): string
     {
@@ -21,4 +29,10 @@ class CreateUser implements ViewModelInterface
     {
         return self::BODY_CLASSES;
     }
+
+    public function getUser(): User
+    {
+        return $this->user;
+    }
 }
+

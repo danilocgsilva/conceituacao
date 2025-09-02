@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Support\Http\Controller;
-use App\Admin\ViewModel;
+use App\ViewModel;
 use App\Support\Models\User;
 use App\Contracts\UserRepositoryInterface;
 use App\Http\Requests\{

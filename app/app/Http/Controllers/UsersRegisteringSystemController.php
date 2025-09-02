@@ -6,17 +6,15 @@ namespace App\Http\Controllers;
 
 use App\Contracts\UserRepositoryInterface;
 use App\Support\PaginationData;
-use App\Admin\ViewModel;
+use App\ViewModel;
 use Illuminate\Http\Request;
 use App\Support\Http\Controller;
 use App\Http\Requests\ProfileUpdateRequest;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Http\RedirectResponse;
-use Illuminate\Validation\Rules;
 use Illuminate\Auth\Events\Registered;
-use App\Support\Models\User;
-use Illuminate\Support\Facades\Hash;
 use Illuminate\View\View;
+use App\Http\Requests\RegisterRequest;
 
 class UsersRegisteringSystemController extends Controller
 {
@@ -60,7 +58,7 @@ class UsersRegisteringSystemController extends Controller
         $request->user()->save();
 
         return Redirect::route('myself.edit')
-            ->with('status', 'profile-updated');
+            ->with('status', 'Perfil atualizado');
     }
 
     public function register(): View
@@ -69,23 +67,11 @@ class UsersRegisteringSystemController extends Controller
     }
 
 
-    public function store(Request $request): RedirectResponse
+    public function store(RegisterRequest $request, UserRepositoryInterface $userRepository): RedirectResponse
     {
-        $request->validate([
-            'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:' . User::class],
-            'password' => ['required', 'confirmed', Rules\Password::defaults()],
-        ]);
-
-        $user = User::create([
-            'name' => $request->name,
-            'email' => $request->email,
-            'password' => Hash::make($request->password),
-        ]);
+        $user = $userRepository->create($request->all());
 
         event(new Registered($user));
-
-        // Auth::login($user);
 
         return redirect(route('users-registering.index', absolute: false));
     }
