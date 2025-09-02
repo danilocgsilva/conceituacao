@@ -47,6 +47,11 @@ class User extends Authenticatable
 
     public function profiles()
     {
-        return $this->hasMany(\App\Profile::class);
+        return $this->belongsToMany(\App\Profile::class);
+    }
+
+    public function spreadProfiles()
+    {
+        return $this->profiles->pluck('name')->implode(', ');
     }
 }

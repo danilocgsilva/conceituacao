@@ -14,7 +14,7 @@
                 <tr>
                     <td class="px-6 py-4 whitespace-nowrap">{{ $user->name }}</td>
                     <td class="px-6 py-4 whitespace-nowrap">{{ $user->email }}</td>
-                    <td class="px-6 py-4 whitespace-nowrap">Admin</td>
+                    <td class="px-6 py-4 whitespace-nowrap">{{ $user->spreadProfiles() }}</td>
                     <td class="px-6 py-4 whitespace-nowrap">
                         <a href="{{ route('user.edit', ['user' => $user->id]) }}" class="text-indigo-600 hover:text-indigo-900 mr-3">Edit</a>
                         <a href="#" 

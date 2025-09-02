@@ -7,10 +7,10 @@ use App\Support\Models\User;
 
 class Profile extends Model
 {
-    protected $fillable = ['name', 'user_id', 'description'];
+    protected $fillable = ['name', 'description'];
 
-    public function user()
+    public function users()
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsToMany(User::class);
     }
 }

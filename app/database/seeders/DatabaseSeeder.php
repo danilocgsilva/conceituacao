@@ -12,9 +12,9 @@ class DatabaseSeeder extends Seeder
     public function run(): void
     {
         $this->call([
+            ProfileSeeder::class,
             CreateAdministratorUserSeeder::class,
             CreateNonAdministratorUsersSeeder::class,
-            ProfileSeeder::class
         ]);
     }
 }

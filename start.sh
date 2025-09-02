@@ -1,3 +1,3 @@
 #!/bin/bash
 
-docker exec -it cadastro_usuarios /start.sh
+docker exec -it cadastro_usuarios /build.sh

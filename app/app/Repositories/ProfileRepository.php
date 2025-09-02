@@ -24,9 +24,9 @@ class ProfileRepository implements ProfileRepositoryInterface
         return Profile::find($id);
     }
 
-    public function findByName(string $name): ?User
+    public function findByName(string $name): ?Profile
     {
-        return User::where('name', $name)->first();
+        return Profile::where('name', $name)->first();
     }
 
     public function create(array $data): Profile

@@ -14,7 +14,7 @@ interface ProfileRepositoryInterface extends RepositoryInterface
 
     public function find(int $id): ?Profile;
 
-    public function findByName(string $name): ?User;
+    public function findByName(string $name): ?Profile;
 
     public function create(array $data): Profile;
 
