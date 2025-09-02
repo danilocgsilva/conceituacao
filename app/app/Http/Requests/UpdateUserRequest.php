@@ -23,14 +23,14 @@ class UpdateUserRequest extends FormRequest
         ];
     }
 
-    // public function messages(): array
-    // {
-    //     return [
-    //         'name.max' => 'O nome não pode exceder 255 caracteres.',
-    //         'email.email' => 'Por favor, forneça um endereço de email válido.',
-    //         'email.unique' => 'Este email já está em uso.',
-    //         'password.min' => 'A senha deve ter pelo menos 8 caracteres.',
-    //         'password.confirmed' => 'A confirmação da senha não confere.',
-    //     ];
-    // }
+    public function messages(): array
+    {
+        return [
+            'name.max' => 'O nome não pode exceder 255 caracteres.',
+            'email.email' => 'Por favor, forneça um endereço de email válido.',
+            'email.unique' => 'Este email já está em uso.',
+            'password.min' => 'A senha deve ter pelo menos 8 caracteres.',
+            'password.confirmed' => 'A confirmação da senha não confere.',
+        ];
+    }
 }
