@@ -9,7 +9,7 @@ use Illuminate\Support\Collection;
 
 class CreateUser implements ViewModelInterface
 {
-    public const TITLE = "Editar usuário";
+    public const TITLE = "Criar usuário";
 
     public const BODY_CLASSES = "bg-gray-100 min-h-screen";
 

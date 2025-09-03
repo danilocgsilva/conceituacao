@@ -11,7 +11,7 @@ use App\Support\PaginationData;
 
 class Index implements ViewModelInterface, ListableInterface
 {
-    public const TITLE = "Índice";
+    public const TITLE = "Índice de usuários";
 
     public const BODY_CLASSES = "bg-gray-100 min-h-screen";
 

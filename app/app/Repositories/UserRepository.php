@@ -33,7 +33,7 @@ class UserRepository implements UserRepositoryInterface
     {
         $user = User::create($data);
         $user->profiles()->sync(
-            array_values($data['profiles_ids']) ?? []
+            array_values($data['profiles_ids'] ?? [])
         );
         return $user;
     }

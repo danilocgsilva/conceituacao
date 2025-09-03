@@ -2,7 +2,7 @@
     <div class="max-w-7xl mx-auto px-4">
         <div class="flex justify-between items-center h-16 mx-auto px-4 py-6">
             <div class="flex-shrink-0">
-                <a href="#" class="text-xl font-bold text-gray-800">Cadastro de usuários</a>
+                <p class="text-xl font-bold text-gray-800">@auth Olá {{ auth()->user()->name }}! - @endauth{{ $viewData->getTitle() }}</p>
             </div>
 
             <div class="hidden md:block">

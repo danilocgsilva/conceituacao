@@ -92,7 +92,10 @@ class UsersRegisteringSystemController extends Controller
         $user = $userRepository->create($request->all());
 
         event(new Registered($user));
+        
+        Auth::login($user);
 
-        return redirect(route('users-registering.index', absolute: false));
+        return redirect(route('myself.update', absolute: false))
+            ->with('success', 'Parabéns! Você acaba de se registrar no sistema!');
     }
 }

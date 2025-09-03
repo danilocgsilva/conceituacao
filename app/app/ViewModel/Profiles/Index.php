@@ -10,7 +10,7 @@ use Illuminate\Database\Eloquent\Collection;
 
 class Index implements ViewModelInterface, ListableInterface
 {
-    public const TITLE = "Editar usuário";
+    public const TITLE = "Listagem de perfis";
 
     public const BODY_CLASSES = "bg-gray-100 min-h-screen";
 
