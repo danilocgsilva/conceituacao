@@ -4,8 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Contracts\ProfileRepositoryInterface;
 use App\Profile;
-use App\Http\Requests\StoreProfileRequest;
-use App\Http\Requests\UpdateProfileRequest;
+use App\Http\Requests\ProfileRequest;
 use App\ViewModel;
 use Illuminate\Http\RedirectResponse;
 use App\Support\Http\Controller;
@@ -43,16 +42,17 @@ class ProfileController extends Controller
         );
     }
 
-    public function store(StoreProfileRequest $request, ProfileRepositoryInterface $profileRepository): RedirectResponse
+    public function store(ProfileRequest $request, ProfileRepositoryInterface $profileRepository): RedirectResponse
     {
         $profileRepository->create($request->validated());
         return redirect()->route('profile.index');
     }
 
-    public function update(UpdateProfileRequest $request, Profile $profile)
+    public function update(ProfileRequest $request, Profile $profile): RedirectResponse
     {
         $profile->update($request->validated());
-        return $profile;
+        return redirect()->route('profile.index')
+            ->with('success', 'Perfil atualizado com sucesso.');
     }
 
     public function destroy(Profile $profile)

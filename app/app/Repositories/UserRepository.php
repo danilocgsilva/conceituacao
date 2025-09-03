@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Repositories;
 
+use App\Contracts\ProfileRepositoryInterface;
 use App\Support\Models\User;
 use Illuminate\Support\Collection;
 use App\Contracts\UserRepositoryInterface;
@@ -33,9 +34,17 @@ class UserRepository implements UserRepositoryInterface
         return User::create($data);
     }
 
+    public function createOrUpdate(array $data): User
+    {
+        return User::updateOrCreate(['name' => $data['name']], $data);
+    }
+
     public function update(int $id, array $data): bool
     {
         $user = $this->find($id);
+        if (isset($data['profile_ids'])) {
+            $user->profiles()->sync($data['profile_ids']);
+        }
         return $user ? $user->update($data) : false;
     }
 

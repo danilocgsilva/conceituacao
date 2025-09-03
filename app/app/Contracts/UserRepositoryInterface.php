@@ -18,6 +18,8 @@ interface UserRepositoryInterface extends RepositoryInterface
 
     public function create(array $data): User;
 
+    public function createOrUpdate(array $data): User;
+
     public function update(int $id, array $data): bool;
 
     public function delete(int $id): bool;

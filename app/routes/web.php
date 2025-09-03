@@ -21,6 +21,9 @@ Route::middleware('auth')->group(function () {
 
     Route::get('/', [UsersRegisteringSystemController::class, "index"])
         ->name('users-registering.index');
+    Route::get('/user', function() {
+        return redirect(route('users-registering.index'));
+    });
     Route::get('/user/create', [AdminUserController::class, "create"])
         ->name('user.create');
     Route::post('/user', [AdminUserController::class, "store"])

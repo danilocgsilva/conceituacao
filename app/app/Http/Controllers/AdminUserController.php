@@ -49,10 +49,12 @@ class AdminUserController extends Controller
     ): RedirectResponse
     {
         $data = $request->only(['name', 'email']);
+        
         if ($request->filled('password')) {
             $data['password'] = $request->password;
         }
 
+        $data['profile_ids'] = array_values($request->get('profiles'));
         $userRepository->update($user->id, $data);
 
         return redirect()->route('users-registering.index')

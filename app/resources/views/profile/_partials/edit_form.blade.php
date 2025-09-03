@@ -5,8 +5,10 @@
                 <h2 class="text-xl font-semibold text-gray-900">Altere o perfil</h2>
             </header>
 
-            <form class="mt-6 space-y-6" action="{{ route('profile.store') }}" method="POST">
+            <form class="mt-6 space-y-6" action="{{ route('profile.update', $viewData->getProfile()) }}" method="post">
                 @csrf
+                @method('patch')
+
 
                 <div>
                     <label for="name" class="block font-medium text-sm text-gray-700">Nome</label>
@@ -32,11 +34,6 @@
                 <div class="flex items-center gap-4">
                     <button type="submit"
                         class="px-5 py-2.5 rounded-lg bg-blue-600 text-white font-medium hover:bg-blue-700 transition">Salvar</button>
-
-                    @if (session('status') === 'profile-updated')
-                        <p x-data="{ show: true }" x-show="show" x-transition x-init="setTimeout(() => show = false, 2000)"
-                            class="text-sm text-gray-600">Saved.</p>
-                    @endif
                 </div>
             </form>
         </section>

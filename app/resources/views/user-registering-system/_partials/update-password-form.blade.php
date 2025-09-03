@@ -41,11 +41,6 @@
 
             <div class="flex items-center gap-4">
                 <button type="submit" class="px-5 py-2.5 rounded-lg bg-blue-600 text-white font-medium hover:bg-blue-700 transition">Salvar</button>
-
-                @if (session('status') === 'password-updated')
-                    <p x-data="{ show: true }" x-show="show" x-transition x-init="setTimeout(() => show = false, 2000)"
-                        class="text-sm text-gray-600">Salvo.</p>
-                @endif
             </div>
         </form>
     </section>

@@ -24,14 +24,14 @@
                             <tbody class="bg-white divide-y divide-gray-200">
 
                                 @foreach ($viewData->getList() as $perfil)
-
                                     <tr>
                                         <td class="px-6 py-4 whitespace-nowrap">{{ $perfil->name }}</td>
-                                        <td class="px-6 py-4 whitespace-nowrap">{{  $perfil->description }}</td>
+                                        <td class="px-6 py-4 whitespace-nowrap">{{ $perfil->description }}</td>
                                         <td class="px-6 py-4 whitespace-nowrap">
-                                            <a href="{{ route('profile.edit', $perfil->id) }}" class="text-indigo-600 hover:text-indigo-900 mr-3">Edit</a>
+                                            <a href="{{ route('profile.edit', $perfil->id) }}"
+                                                class="text-indigo-600 hover:text-indigo-900 mr-3">Edit</a>
                                             <a href="#" class="text-red-600 hover:text-red-900" onclick="event.preventDefault(); confirmUserDeletion('id-dinamico')>Delete</a>
-                                            <form id=" delete-profile-form-id-dinamico" action="#" method="POST"
+                                                <form id=" delete-profile-form-id-dinamico" action="#" method="POST"
                                                 class="hidden">
                                                 @csrf
                                                 @method('DELETE')
