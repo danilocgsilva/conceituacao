@@ -51,7 +51,6 @@ Criar uma aplicação Laravel para gerenciar usuários e seus perfis, onde cada 
     - Fazer um fork deste repositório.
 
 
-
 2. **README-novo do Projeto**:
     - Crie um novo Readme "Readme-novo.md"
     - Inclua as seguintes informações:

@@ -6,7 +6,7 @@
                 <tr>
                     <th class="px-6 py-3 text-left text-gray-500">Nome</th>
                     <th class="px-6 py-3 text-left text-gray-500">Email</th>
-                    <th class="px-6 py-3 text-left text-gray-500">Perfil</th>
+                    <th class="px-6 py-3 text-left text-gray-500">Perfis</th>
                     <th class="px-6 py-3 text-left text-gray-500">Ações
                     </th>
                 </tr>
@@ -19,9 +19,9 @@
                         <td class="px-6 py-4 whitespace-nowrap">{{ $user->spreadProfiles() }}</td>
                         <td class="px-6 py-4 whitespace-nowrap">
                             <a href="{{ route('user.edit', ['user' => $user->id]) }}"
-                                class="text-indigo-600 hover:text-indigo-900 mr-3">Edit</a>
+                                class="text-indigo-600 hover:text-indigo-900 mr-3">Editar</a>
                             <a href="#" class="text-red-600 hover:text-red-900"
-                                onclick="event.preventDefault(); confirmUserDeletion({{ $user->id }})">Delete</a>
+                                onclick="event.preventDefault(); confirmUserDeletion({{ $user->id }})">Remover</a>
                             <form id="delete-user-form-{{ $user->id }}" action="{{ route('user.destroy', $user->id) }}"
                                 method="POST" class="hidden">
                                 @csrf

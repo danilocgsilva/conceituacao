@@ -13,9 +13,7 @@
             <div class="py-6 px-8">
 
                 <div class="text-center">
-                    <div class="mx-auto w-24 h-24 rounded-full bg-blue-100 flex items-center justify-center mb-4">
-                        <i class="fas fa-user-lock text-blue-600 text-4xl"></i>
-                    </div>
+                    
                     <h2 class="text-3xl font-bold text-gray-800 mb-2">Bem vindo!</h2>
                     <p class="text-gray-600 mb-8">Se logue para continuar as atividades</p>
                 </div>
@@ -50,16 +48,6 @@
                         @error('password')
                             <p class="mt-2 text-sm text-red-600">{{ $message }}</p>
                         @enderror
-                    </div>
-
-                    <!-- Remember Me -->
-                    <div class="block mt-4">
-                        <label for="remember_me" class="inline-flex items-center">
-                            <input id="remember_me" type="checkbox"
-                                class="rounded border-gray-300 text-indigo-600 shadow-sm focus:ring-indigo-500"
-                                name="remember">
-                            <span class="ms-2 text-sm text-gray-600">Remember me</span>
-                        </label>
                     </div>
 
                     <div class="flex items-center justify-end mt-4">

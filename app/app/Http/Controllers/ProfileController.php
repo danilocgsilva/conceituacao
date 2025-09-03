@@ -45,7 +45,8 @@ class ProfileController extends Controller
     public function store(ProfileRequest $request, ProfileRepositoryInterface $profileRepository): RedirectResponse
     {
         $profileRepository->create($request->validated());
-        return redirect()->route('profile.index');
+        return redirect()->route('profile.index')
+            ->with('success', 'Perfil criado com sucesso.');;
     }
 
     public function update(ProfileRequest $request, Profile $profile): RedirectResponse

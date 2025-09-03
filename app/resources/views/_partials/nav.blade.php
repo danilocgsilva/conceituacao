@@ -9,7 +9,9 @@
                 <div class="ml-10 flex items-baseline space-x-4">
                     @auth
 
-                    <a href="{{ route('user.create') }}">Criar usuário</a>
+                    @if (auth()->user()->isAdmin())
+                        <a href="{{ route('user.create') }}">Criar usuário</a>
+                    @endif
                     <a href="{{ route('profile.index') }}">Perfis</a>
                     <a href="{{ route('users-registering.index') }}">Usuários</a>
                     <a href="{{ route('myself.edit') }}">Minhas informações</a>
@@ -57,8 +59,11 @@
         <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
             
             @auth
-            <a href="{{ route('user.create') }}"
-                class="text-gray-600 hover:text-gray-900 block px-3 py-2 rounded-md text-base font-medium">Criar usuário</a>
+            @if (auth()->user()->isAdmin())
+                <a href="{{ route('user.create') }}"
+                    class="text-gray-600 hover:text-gray-900 block px-3 py-2 rounded-md text-base font-medium">Criar usuário</a>
+            @endif
+            
 
             <a href="{{ route('profile.index') }}"
                 class="text-gray-600 hover:text-gray-900 block px-3 py-2 rounded-md text-base font-medium">Perfis</a>

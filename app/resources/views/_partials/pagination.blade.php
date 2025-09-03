@@ -3,7 +3,7 @@
 
         @if (!$viewData->getPaginationData()->isFirstPage())
             <a href="{{ url()->current() . '?page=' . ($viewData->getPaginationData()->getCurrentPage() - 1) }}"
-                class="py-2 px-4 border border-gray-300 bg-white text-blue-500 hover:bg-gray-50 rounded-l-md">Previous</a>
+                class="py-2 px-4 border border-gray-300 bg-white text-blue-500 hover:bg-gray-50 rounded-l-md">Anterior</a>
 
         @endif
 
@@ -18,7 +18,7 @@
 
         @if (!$viewData->getPaginationData()->isLastPage())
             <a href="{{ url()->current() . '?page=' . ($viewData->getPaginationData()->getCurrentPage() + 1) }}"
-                class="py-2 px-4 border border-gray-300 bg-white text-blue-500 hover:bg-gray-50 rounded-r-md border-l-0">Next</a>
+                class="py-2 px-4 border border-gray-300 bg-white text-blue-500 hover:bg-gray-50 rounded-r-md border-l-0">Próximo</a>
         @endif
     </nav>
 </div>

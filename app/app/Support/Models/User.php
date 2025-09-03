@@ -66,4 +66,10 @@ class User extends Authenticatable
     {
         return $this->profiles->contains($profile);
     }
+
+    public function isAdmin(): bool
+    {
+        $adminProfile = Profile::find(1);
+        return $adminProfile ? (bool) $this->hasProfile($adminProfile) : false;
+    }
 }

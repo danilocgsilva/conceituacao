@@ -29,9 +29,9 @@
                                         <td class="px-6 py-4 whitespace-nowrap">{{ $profile->description }}</td>
                                         <td class="px-6 py-4 whitespace-nowrap">
                                             <a href="{{ route('profile.edit', $profile->id) }}"
-                                                class="text-indigo-600 hover:text-indigo-900 mr-3">Edit</a>
+                                                class="text-indigo-600 hover:text-indigo-900 mr-3">Editar</a>
                                             <a href="#" class="text-red-600 hover:text-red-900"
-                                                onclick="event.preventDefault(); confirmProfileDeletion({{ $profile->id }})">Delete</a>
+                                                onclick="event.preventDefault(); confirmProfileDeletion({{ $profile->id }})">Remover</a>
                                             <form id="delete-profile-form-{{ $profile->id }}"
                                                 action="{{ route('profile.destroy', $profile->id) }}"
                                                 method="POST" class="hidden">
