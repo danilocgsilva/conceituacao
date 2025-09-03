@@ -3,6 +3,7 @@
         || session()->has('status')
         || session()->has('error')
         || $errors->any()
+        || $errors->userDeletion->any()
     )
     <div class="px-4 py-0 mt-6 ">
         @if (session('success'))
@@ -26,5 +27,12 @@
                 </div>
             </div>
         @endif
+        @foreach ($errors->userDeletion->all() as $error)
+            <div class="max-w-7xl mx-auto bg-red-50 border border-red-200 rounded-lg shadow-md p-4">
+                <div class="flex flex-col md:flex-row gap-4">
+                    {{ $error }}
+                </div>
+            </div>
+        @endforeach
     </div>
 @endif

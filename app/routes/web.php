@@ -13,7 +13,7 @@ Route::middleware('auth')->group(function () {
 
     Route::patch('/myself', [UsersRegisteringSystemController::class, 'updateMyself'])
         ->name('myself.update');
-    Route::delete('/mysqlf', [UsersRegisteringSystemController::class, 'removeMyself'])
+    Route::delete('/myself', [UsersRegisteringSystemController::class, 'removeMyself'])
         ->name('mysqld.destroy');
 
     Route::get('/', [UsersRegisteringSystemController::class, "index"])

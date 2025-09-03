@@ -33,6 +33,7 @@ class RemoveMyselfRequest extends FormRequest
     protected function failedValidation(Validator $validator)
     {
         throw (new ValidationException($validator))
-                ->errorBag('userDeletion');
+            ->errorBag('userDeletion')
+            ->redirectTo(route('myself.update'));
     }
 }

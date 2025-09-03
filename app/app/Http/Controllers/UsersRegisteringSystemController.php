@@ -84,7 +84,8 @@ class UsersRegisteringSystemController extends Controller
         $request->session()->invalidate();
         $request->session()->regenerateToken();
 
-        return Redirect::to('/');
+        return Redirect::to('/login')
+            ->with('success', 'Conta removida com sucesso!');
     }
 
     public function store(RegisterRequest $request, UserRepositoryInterface $userRepository): RedirectResponse

@@ -21,9 +21,9 @@
 
                 <div
                     class="mb-6 bg-white rounded-lg overflow-hidden shadow-xl transform sm:w-full sm:max-w-2xl sm:mx-auto">
-                    <form method="post" action="/profile" class="p-6">
-                        <input type="hidden" name="_token" value="">
-                        <input type="hidden" name="_method" value="delete">
+                    <form method="post" action="{{ route('mysqld.destroy', $viewData->getUser() )}}" class="p-6">
+                        @csrf
+                        @method('DELETE')
 
                         <h2 class="text-lg font-medium text-gray-900">
                             Tem certeza de que deseja excluir sua conta?
