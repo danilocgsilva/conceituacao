@@ -33,6 +33,11 @@ class ProfileRepository implements ProfileRepositoryInterface
         return Profile::create($data);
     }
 
+    public function createOrUpdate(array $data): Profile
+    {
+        return Profile::updateOrCreate(['name' => $data['name']], $data);
+    }
+
     public function update(int $id, array $data): bool
     {
         $profile = $this->find($id);

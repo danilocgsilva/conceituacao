@@ -15,23 +15,23 @@ class ProfileSeeder extends Seeder
     {
         $repository = app(ProfileRepositoryInterface::class);
 
-        $repository->create([
+        $repository->createOrUpdate([
             'name' => 'Administrador de Sistema',
             'description' => 'Usuário com permissões máximas para o sistema',
         ]);
-        $repository->create([
+        $repository->createOrUpdate([
             'name' => 'Gerente',
             'description' => 'Perfil para usuários gerentes',
         ]);
-        $repository->create([
+        $repository->createOrUpdate([
             'name' => 'Vendas',
             'description' => 'Perfil para usuário de vendas',
         ]);
-        $repository->create(data: [
+        $repository->createOrUpdate(data: [
             'name' => 'Financeiro',
             'description' => 'Perfil para usuários financeiros',
         ]);
-        $repository->create([
+        $repository->createOrUpdate([
             'name' => 'Visitante',
             'description' => 'Perfil para usuários que não podem alterar informações',
         ]);

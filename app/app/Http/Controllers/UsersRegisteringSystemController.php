@@ -10,6 +10,7 @@ use App\ViewModel;
 use Illuminate\Http\Request;
 use App\Support\Http\Controller;
 use App\Http\Requests\ProfileUpdateRequest;
+use App\Http\Requests\UsersIndexRequest;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Auth\Events\Registered;
@@ -20,7 +21,7 @@ use App\Http\Requests\RemoveMyselfRequest;
 
 class UsersRegisteringSystemController extends Controller
 {
-    public function index(Request $request, UserRepositoryInterface $userRepository)
+    public function index(UsersIndexRequest $request, UserRepositoryInterface $userRepository)
     {
         $paginationData = new PaginationData(
             (int) $request->query('page', "1"),

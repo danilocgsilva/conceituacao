@@ -31,7 +31,11 @@ class UserRepository implements UserRepositoryInterface
 
     public function create(array $data): User
     {
-        return User::create($data);
+        $user = User::create($data);
+        $user->profiles()->sync(
+            array_values($data['profiles_ids']) ?? []
+        );
+        return $user;
     }
 
     public function createOrUpdate(array $data): User
@@ -42,8 +46,10 @@ class UserRepository implements UserRepositoryInterface
     public function update(int $id, array $data): bool
     {
         $user = $this->find($id);
-        if (isset($data['profile_ids'])) {
-            $user->profiles()->sync($data['profile_ids']);
+        if (isset($data['profiles_ids'])) {
+            $user->profiles()->sync(
+                array_values($data['profiles_ids']) ?? []
+            );
         }
         return $user ? $user->update($data) : false;
     }

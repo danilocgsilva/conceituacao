@@ -18,6 +18,8 @@ interface ProfileRepositoryInterface extends RepositoryInterface
 
     public function create(array $data): Profile;
 
+    public function createOrUpdate(array $data): Profile;
+
     public function update(int $id, array $data): bool;
 
     public function delete(int $id): bool;
