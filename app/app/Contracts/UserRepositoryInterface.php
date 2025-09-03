@@ -24,5 +24,5 @@ interface UserRepositoryInterface extends RepositoryInterface
 
     public function delete(int $id): bool;
 
-    public function getPaginated(PaginationData $paginationData): Collection;
+    public function getPaginatedAndQuery(PaginationData $paginationData, string $query = null): Collection;
 }

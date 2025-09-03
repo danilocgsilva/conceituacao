@@ -53,7 +53,8 @@
 
             <div class="flex items-center gap-4">
                 <button type="submit"
-                    class="px-5 py-2.5 rounded-lg bg-blue-600 text-white font-medium hover:bg-blue-700 transition">Editar</button>
+                    class="px-5 py-2.5 rounded-lg bg-blue-600 text-white font-medium hover:bg-blue-700 transition">Atualizar</button>
+                <a href="{{ route('users-registering.index') }}" class="px-5 py-2.5 rounded-lg bg-gray-500 text-white font-medium hover:bg-gray-600 transition">Cancelar</a>
             </div>
 
         </form>

@@ -54,12 +54,19 @@ class UserRepository implements UserRepositoryInterface
         return $user ? (bool) $user->delete() : false;
     }
 
-    public function getPaginated(PaginationData $paginationData): Collection
+    public function getPaginatedAndQuery(PaginationData $paginationData, string $query = null): Collection
     {
-        $this->paginationData = $paginationData;
-        $this->paginationData->setTotalItems(User::count());
+        $builder = User::query();
         
-        return User::paginate(
+        if ($query) {
+            $builder->where('name', 'like', "%{$query}%")
+                ->orWhere('email', 'like', "%{$query}%");
+        }
+        
+        $this->paginationData = $paginationData;
+        $this->paginationData->setTotalItems($builder->count());
+        
+        return $builder->paginate(
             $paginationData->perPage,
             ['*'],
             'page',

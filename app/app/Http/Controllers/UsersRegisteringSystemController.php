@@ -26,14 +26,18 @@ class UsersRegisteringSystemController extends Controller
             (int) $request->query('page', "1"),
             10
         );
-        $usersCollection = $userRepository->getPaginated($paginationData);
+        $usersCollection = $userRepository->getPaginatedAndQuery(
+            $paginationData,
+            $query = $request->get('query')
+        );
 
         return viewWithViewModel(
             'user-registering-system.index',
             ViewModel\Users\Index::class,
             [
                 'users' => $usersCollection,
-                'pagination' => $paginationData
+                'pagination' => $paginationData,
+                'query' => $query
             ]
         );
     }

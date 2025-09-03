@@ -19,10 +19,13 @@ class Index implements ViewModelInterface, ListableInterface
 
     private PaginationData $paginationData;
 
+    private string|null $query;
+
     public function __construct(array $data)
     {
         $this->users = $data['users'];
         $this->paginationData = $data['pagination'];
+        $this->query = $data['query'] ?? null;
     }
 
     public function getTitle(): string
@@ -43,5 +46,10 @@ class Index implements ViewModelInterface, ListableInterface
     public function getPaginationData(): PaginationData
     {
         return $this->paginationData;
+    }
+
+    public function getQuery(): string|null
+    {
+        return $this->query;
     }
 }
