@@ -6,6 +6,7 @@ use App\Support\Http\Controller;
 use App\ViewModel;
 use App\Support\Models\User;
 use App\Contracts\UserRepositoryInterface;
+use App\Contracts\ProfileRepositoryInterface;
 use App\Http\Requests\{
     CreateUserRequest,
     UpdateUserRequest
@@ -14,13 +15,14 @@ use Illuminate\Http\RedirectResponse;
 
 class AdminUserController extends Controller
 {
-    public function edit(User $user)
+    public function edit(User $user, ProfileRepositoryInterface $profileRepository)
     {
         return viewWithViewModel(
             'admin.edit',
             ViewModel\Users\EditUser::class,
             [
-                'user' => $user
+                'user' => $user->load('profiles'),
+                'profiles' => $profileRepository->all()
             ]
         );
     }

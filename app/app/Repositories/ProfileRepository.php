@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace App\Repositories;
 
 use App\Profile;
-use App\Support\Models\User;
 use Illuminate\Support\Collection;
 use App\Contracts\ProfileRepositoryInterface;
 use App\Support\PaginationData;

@@ -5,6 +5,7 @@ namespace App\Support\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use App\Profile;
 
 class User extends Authenticatable
 {
@@ -47,11 +48,22 @@ class User extends Authenticatable
 
     public function profiles()
     {
-        return $this->belongsToMany(\App\Profile::class);
+        return $this->belongsToMany(Profile::class);
     }
 
     public function spreadProfiles()
     {
         return $this->profiles->pluck('name')->implode(', ');
+    }
+
+    public function addProfile(Profile $profile)
+    {
+        $this->profiles()->save($profile);
+        return $this;
+    }
+
+    public function hasProfile(Profile $profile)
+    {
+        return $this->profiles->contains($profile);
     }
 }

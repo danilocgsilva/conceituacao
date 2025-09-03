@@ -6,6 +6,7 @@ namespace App\ViewModel\Users;
 
 use App\Contracts\ViewModelInterface;
 use App\Support\Models\User;
+use Illuminate\Support\Collection;
 
 class EditUser implements ViewModelInterface
 {
@@ -15,9 +16,12 @@ class EditUser implements ViewModelInterface
 
     private User $user;
 
+    private Collection $profiles;
+
     public function __construct(array $data)
     {
         $this->user = $data['user'];
+        $this->profiles = $data['profiles'];
     }
 
     public function getTitle(): string
@@ -33,6 +37,11 @@ class EditUser implements ViewModelInterface
     public function getUser(): User
     {
         return $this->user;
+    }
+
+    public function getProfiles(): Collection
+    {
+        return $this->profiles;
     }
 }
 

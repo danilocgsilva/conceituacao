@@ -6,8 +6,7 @@
                     <div class="bg-white rounded-lg listing-container p-4 mb-6 flex justify-between items-center">
                         <div class="flex space-x-2">
                             <button class="create-btn px-4 py-2 bg-blue-500 text-white rounded flex items-center">
-                                <i class="fas fa-plus mr-2"></i>
-                                <span>Novo perfil</span>
+                                <a href="{{ route('profile.create') }}">Novo perfil</a>
                             </button>
                         </div>
                     </div>
@@ -30,7 +29,7 @@
                                         <td class="px-6 py-4 whitespace-nowrap">{{ $perfil->name }}</td>
                                         <td class="px-6 py-4 whitespace-nowrap">{{  $perfil->description }}</td>
                                         <td class="px-6 py-4 whitespace-nowrap">
-                                            <a href="#" class="text-indigo-600 hover:text-indigo-900 mr-3">Edit</a>
+                                            <a href="{{ route('profile.edit', $perfil->id) }}" class="text-indigo-600 hover:text-indigo-900 mr-3">Edit</a>
                                             <a href="#" class="text-red-600 hover:text-red-900" onclick="event.preventDefault(); confirmUserDeletion('id-dinamico')>Delete</a>
                                             <form id=" delete-profile-form-id-dinamico" action="#" method="POST"
                                                 class="hidden">

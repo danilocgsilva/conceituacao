@@ -22,7 +22,7 @@ class CreateNonAdministratorUsersSeeder extends Seeder
             'name' => 'Celso Gerente',
             'email' => 'celso.genrete@gerente.com.br',
             'password' => 'gerenciapassword'
-        ])->profiles()->save(
+        ])->addProfile(
             $profileRepository->findByName('Gerente')
         );
 
@@ -30,7 +30,7 @@ class CreateNonAdministratorUsersSeeder extends Seeder
             'name' => 'Elaine das Vendas',
             'email' => 'elaine.vendas@empresa.com.br',
             'password' => 'vendaspassword'
-        ])->profiles()->save(
+        ])->addProfile(
             $profileRepository->findByName('Vendas')
         );
 
@@ -38,17 +38,25 @@ class CreateNonAdministratorUsersSeeder extends Seeder
             'name' => 'Bruna Finanças',
             'email' => 'bruna.financas@empresa.com.br',
             'password' => 'financaspassword'
-        ])->profiles()->save(
+        ])->addProfile(
             $profileRepository->findByName('Financeiro')
         );
-
+            
         $userRepository->create([
             'name' => 'Lucas Visitante',
             'email' => 'lucas.visitante@empresa.com.br',
             'password' => 'visitantepassword'
-        ])->profiles()->save(
+        ])->addProfile(
             $profileRepository->findByName('Visitante')
         );
+
+        $userRepository->create([
+            'name' => 'Mariana',
+            'email' => 'mariana@empresa.com',
+            'password' => 'marianapassword'
+        ])
+        ->addProfile($profileRepository->findByName('Financeiro'))
+        ->addProfile($profileRepository->findByName('Vendas'));
     }
 }
 

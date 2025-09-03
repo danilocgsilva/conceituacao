@@ -4,10 +4,14 @@ namespace App\Http\Controllers;
 
 use App\Contracts\ProfileRepositoryInterface;
 use App\Profile;
-use Illuminate\Http\Request;
+use App\Http\Requests\StoreProfileRequest;
+use App\Http\Requests\UpdateProfileRequest;
 use App\ViewModel;
+use Illuminate\Http\RedirectResponse;
+use App\Support\Http\Controller;
 
-class ProfileController
+
+class ProfileController extends Controller
 {
     public function index(ProfileRepositoryInterface $profileRepository)
     {
@@ -20,14 +24,34 @@ class ProfileController
         );
     }
 
-    public function store(Request $request)
+    public function create()
     {
-        return Profile::create($request->all());
+        return viewWithViewModel(
+            'profile.create',
+            ViewModel\Profiles\Create::class
+        );
     }
 
-    public function update(Request $request, Profile $profile)
+    public function edit(Profile $profile)
     {
-        $profile->update($request->all());
+        return viewWithViewModel(
+            'profile.edit',
+            ViewModel\Profiles\Edit::class,
+            [
+                'profile' => $profile
+            ]
+        );
+    }
+
+    public function store(StoreProfileRequest $request, ProfileRepositoryInterface $profileRepository): RedirectResponse
+    {
+        $profileRepository->create($request->validated());
+        return redirect()->route('profile.index');
+    }
+
+    public function update(UpdateProfileRequest $request, Profile $profile)
+    {
+        $profile->update($request->validated());
         return $profile;
     }
 
