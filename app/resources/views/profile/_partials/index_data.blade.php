@@ -23,23 +23,21 @@
                             </thead>
                             <tbody class="bg-white divide-y divide-gray-200">
 
-                                @foreach ($viewData->getList() as $perfil)
+                                @foreach ($viewData->getList() as $profile)
                                     <tr>
-                                        <td class="px-6 py-4 whitespace-nowrap">{{ $perfil->name }}</td>
-                                        <td class="px-6 py-4 whitespace-nowrap">{{ $perfil->description }}</td>
+                                        <td class="px-6 py-4 whitespace-nowrap">{{ $profile->name }}</td>
+                                        <td class="px-6 py-4 whitespace-nowrap">{{ $profile->description }}</td>
                                         <td class="px-6 py-4 whitespace-nowrap">
-                                            <a href="{{ route('profile.edit', $perfil->id) }}"
+                                            <a href="{{ route('profile.edit', $profile->id) }}"
                                                 class="text-indigo-600 hover:text-indigo-900 mr-3">Edit</a>
-                                            <a href="#" class="text-red-600 hover:text-red-900" onclick="event.preventDefault(); confirmUserDeletion('id-dinamico')>Delete</a>
-                                                <form id=" delete-profile-form-id-dinamico" action="#" method="POST"
-                                                class="hidden">
+                                            <a href="#" class="text-red-600 hover:text-red-900"
+                                                onclick="event.preventDefault(); confirmProfileDeletion({{ $profile->id }})">Delete</a>
+                                            <form id="delete-profile-form-{{ $profile->id }}"
+                                                action="{{ route('profile.destroy', $profile->id) }}"
+                                                method="POST" class="hidden">
                                                 @csrf
                                                 @method('DELETE')
-                                                <button type="submit"
-                                                    onclick="return confirm('Are you sure you want to delete this post?')">
-                                                    Delete
-                                                </button>
-                                                </form>
+                                            </form>
                                         </td>
                                     </tr>
                                 @endforeach

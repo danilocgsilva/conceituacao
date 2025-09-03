@@ -26,9 +26,6 @@
                                 method="POST" class="hidden">
                                 @csrf
                                 @method('DELETE')
-                                <button type="submit" onclick="return confirm('Are you sure you want to delete this post?')">
-                                    Delete
-                                </button>
                             </form>
                         </td>
                     </tr>

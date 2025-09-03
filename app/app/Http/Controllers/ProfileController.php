@@ -55,9 +55,10 @@ class ProfileController extends Controller
             ->with('success', 'Perfil atualizado com sucesso.');
     }
 
-    public function destroy(Profile $profile)
+    public function destroy(Profile $profile): RedirectResponse
     {
         $profile->delete();
-        return response()->noContent();
+        return redirect()->route('profile.index')
+            ->with('success', 'Perfil removido com sucesso.');
     }
 }
